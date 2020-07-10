@@ -1,0 +1,11 @@
+@import url(../common/reset.css);
+@import url(../common/base.css);
+@import url(../common/layout.css);
+@import url(../common/header.css);
+@import url(../common/footer.css);
+
+.nofound img{
+    background-size:contain;
+    width:100%;
+    height:auto;
+}

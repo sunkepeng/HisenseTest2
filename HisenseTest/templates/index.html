@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+{% block title %}首页{% endblock %}
+{% block css %}/static/styles/pages/index.css{% endblock %}
+{% block content %}
+    <style type="text/css">
+        table, table tr th, table tr td {
+            border: 1px solid #1b1e21;
+            padding: 5px
+        }
+
+        table tr th {
+            background-color: #125688;
+            color: #ffffff
+        }
+    </style>
+    <div class="page-main clearfix">
+        <form method="post" id="searchform">
+            <div class="search-item" style="margin-bottom: 0;">
+                <div class="mac-input" style="float:left">
+                    <label for="mach-id"
+                           style="text-align: right; margin-top: 5px; margin-right: 15px">MachineID</label>
+                    <input type="text" name="MachineID" id="mach-id" aria-required="true"
+                           autocapitalize="off" autocorrect="off" placeholder="MachineID">
+                </div>
+                <div class="mac-input-button" style="float:left;margin-left: 80px">
+                    <button onclick="form=document.getElementById('searchform');form.action='/search/';">查询</button>
+                </div>
+                <div class="flask_text" style="float: left;margin-left: 30px;color: red">
+                    {{ get_flashed_messages()[0] }}
+                </div>
+            </div>
+        </form>
+        <div class="container-pageutils" style="margin-top: 50px">
+            <div class="row" style="margin-top: 10px; overflow: auto;width: 100%">
+                <table class="table table-bordered" width="auto" style="white-space: nowrap" id="datatable">
+                    <tr>
+                        <th>ID</th>
+                        <th>MachineID</th>
+                        <th>Mac</th>
+                        <th>Widevine</th>
+                        <th>ChinaDrm</th>
+                        <th>Hdcp</th>
+                        <th>ATV_Synchrolock</th>
+                        <th>ATV_FieldRate</th>
+                        <th>ATV_ImageFormat</th>
+                        <th>ATV_SoundFormat</th>
+                        <th>ATV_NoiseIntensity</th>
+                        <th>ATV_Final</th>
+                        <th>DTMB_Synchrolock</th>
+                        <th>DTMB_ImageFormat</th>
+                        <th>DTMB_SignalStrength</th>
+                        <th>DTMB_Final</th>
+                        <th>DVBC_Synchrolock</th>
+                        <th>DVBC_ImageFormat</th>
+                        <th>DVBC_SignalStrength</th>
+                        <th>DVBC_Final</th>
+                        <th>AV_FieldRate</th>
+                        <th>AV_ImageFormat</th>
+                        <th>AV_Final</th>
+                        <th>HDMI1_FieldRate</th>
+                        <th>HDMI1_Distinguish</th>
+                        <th>HDMI1_ConnectState</th>
+                        <th>HDMI1_HdmiState</th>
+                        <th>HDMI1_HdcpState</th>
+                        <th>HDMI1_Final</th>
+                        <th>HDMI2_FieldRate</th>
+                        <th>HDMI2_Distinguish</th>
+                        <th>HDMI2_ConnectState</th>
+                        <th>HDMI2_HdmiState</th>
+                        <th>HDMI2_HdcpState</th>
+                        <th>HDMI2_Final</th>
+                        <th>SourceImage</th>
+                        <th>WifiConnection</th>
+                        <th>BT_Driver</th>
+                        <th>BT_Enable</th>
+                        <th>BT_RF</th>
+                        <th>ScreenTest</th>
+                        <th>Saving</th>
+                        <th>MIC</th>
+                        <th>Vcom</th>
+                        <th>WB</th>
+                    </tr>
+                    {% for info in index_list %}
+                        <tr>
+                            <td>{{ info.id }}</td>
+                            <td>{{ info.MachineID }}</td>
+                            <td>{{ info.Mac }}</td>
+                            <td>{{ info.Widevine }}</td>
+                            <td>{{ info.ChinaDrm }}</td>
+                            <td>{{ info.Hdcp }}</td>
+                            <td>{{ info.ATV_Synchrolock }}</td>
+                            <td>{{ info.ATV_FieldRate }}</td>
+                            <td>{{ info.ATV_ImageFormat }}</td>
+                            <td>{{ info.ATV_SoundFormat }}</td>
+                            <td>{{ info.ATV_NoiseIntensity }}</td>
+                            <td>{{ info.ATV_Final }}</td>
+                            <td>{{ info.DTMB_Synchrolock }}</td>
+                            <td>{{ info.DTMB_ImageFormat }}</td>
+                            <td>{{ info.DTMB_SignalStrength }}</td>
+                            <td>{{ info.DTMB_Final }}</td>
+                            <td>{{ info.DVBC_Synchrolock }}</td>
+                            <td>{{ info.DVBC_ImageFormat }}</td>
+                            <td>{{ info.DVBC_SignalStrength }}</td>
+                            <td>{{ info.DVBC_Final }}</td>
+                            <td>{{ info.AV_FieldRate }}</td>
+                            <td>{{ info.AV_ImageFormat }}</td>
+                            <td>{{ info.AV_Final }}</td>
+                            <td>{{ info.HDMI1_FieldRate }}</td>
+                            <td>{{ info.HDMI1_Distinguish }}</td>
+                            <td>{{ info.HDMI1_ConnectState }}</td>
+                            <td>{{ info.HDMI1_HdmiState }}</td>
+                            <td>{{ info.HDMI1_HdcpState }}</td>
+                            <td>{{ info.HDMI1_Final }}</td>
+                            <td>{{ info.HDMI2_FieldRate }}</td>
+                            <td>{{ info.HDMI2_Distinguish }}</td>
+                            <td>{{ info.HDMI2_ConnectState }}</td>
+                            <td>{{ info.HDMI2_HdmiState }}</td>
+                            <td>{{ info.HDMI2_HdcpState }}</td>
+                            <td>{{ info.HDMI2_Final }}</td>
+                            <td>{{ info.SourceImage }}</td>
+                            <td>{{ info.WifiConnection }}</td>
+                            <td>{{ info.BT_Driver }}</td>
+                            <td>{{ info.BT_Enable }}</td>
+                            <td>{{ info.BT_RF }}</td>
+                            <td>{{ info.ScreenTest }}</td>
+                            <td>{{ info.Saving }}</td>
+                            <td>{{ info.MIC }}</td>
+                            <td>{{ info.Vcom }}</td>
+                            <td>{{ info.WB }}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+            <nav aria-label="Page navigation" class="pull-right">
+                <ul class="pagination">
+                    {{ page_html|safe }}
+                </ul>
+            </nav>
+        </div>
+    </div>
+{% endblock %}
+{% block js %}
+    <script type="text/javascript">
+        window.onload = function color() {
+            var table = document.getElementById("datatable");
+            var rows = table.rows;
+            for (var i = 0; i < rows.length; i++) {
+                for (var j = 0; j < rows[i].cells.length; j++) {
+                    var cell = rows[i].cells[j].innerHTML;
+                    if (cell == "wrong") {
+                        rows[i].cells[0].style.color = "red";
+                        rows[i].cells[j].style.color = "red";
+                    }
+                }
+            }
+        }
+    </script>
+    <script type="text/javascript" src="/static/js/jquery.js"></script>
+{% endblock %}

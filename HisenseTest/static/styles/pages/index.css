@@ -1,0 +1,31 @@
+@import url(../common/reset.css);
+@import url(../common/base.css);
+@import url(../common/layout.css);
+@import url(../common/header.css);
+@import url(../common/footer.css);
+.page-main {
+    width: 1500px;
+    margin: 0 auto;
+    padding-bottom:60px
+}
+
+.container-pageutils{
+    margin-top: 5px;
+}
+
+ul.pagination{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+ul.pagination li{
+    display: inline;
+}
+
+ul.pagination li a{
+    color: #003569;
+    float:left;
+    padding: 8px 16px;
+    text-display: none;
+}

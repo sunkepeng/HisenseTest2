@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Chris Sun">
+    <meta name="description" content="base page">
+    <meta name="Keywords" content="base">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% block css %}{% endblock %}"/>
+</head>
+<body>
+<div class="container">
+    <section>
+        <header class="header">
+            <div class="header-cont">
+                <a class="logo" href="/">logo</a>
+                <div class="web-menu">
+                    <a class="profile-ico" href="/logout/">退出</a>
+                </div>
+            </div>
+        </header>
+
+        {% block content %}{% endblock %}
+
+        <footer class="footer">
+            <div class="footer-cont">
+                <nav>
+                    <ul class="footer-items">
+                        <li>
+                            <a href="/about/us/">关于我们</a>
+                        </li>
+                        <li>
+                            <a href="/support/">支持</a>
+                        </li>
+                        <li>
+                            <a href="/blog/">博客</a>
+                        </li>
+                        <li>
+                            <a href="/press/">新闻中心</a>
+                        </li>
+                        <li>
+                            <a href="/developer/">API</a>
+                        </li>
+                        <li>
+                            <a href="/about/jobs/">工作信息</a>
+                        </li>
+                        <li>
+                            <a href="/legal/privacy/">隐私</a>
+                        </li>
+                        <li>
+                            <a href="/legal/terms/">条款</a>
+                        </li>
+                        <li>
+                                <span class="language-wrapper">
+                                    <span>语言</span>
+                                    <select class="ui-select">
+                                        <option value="en">英语</option>
+                                        <option selected="" value="zh-cn">中文（简体）</option>
+                                        <option value="zh-tw">中文（繁体）</option>
+                                    </select>
+                                </span>
+                        </li>
+                    </ul>
+                </nav>
+                <span class="copy-right">© 2019 Hisense R&D</span>
+            </div>
+        </footer>
+    </section>
+</div>
+</body>
+{% block js %}{% endblock %}
+</html>
